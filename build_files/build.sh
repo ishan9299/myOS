@@ -15,6 +15,7 @@ dnf5 install -y just
 dnf5 install -y ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang
 dnf5 -y copr enable solopasha/hyprland
 dnf5 install -y sddm hyprland hyprpolkitagent hyprcursor dunst pipewire wireplumber xdg-desktop-portal-hyprland
+dnf5 -y group install @virtualization
 
 # Use a COPR Example:
 #
