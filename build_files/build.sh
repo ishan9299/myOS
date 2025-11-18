@@ -11,7 +11,7 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 dnf5 install -y tmux
-dnf5 install -y ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang python stow
+dnf5 install -y ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang python stow --setopt=install_weak_deps=False
 dnf5 -y copr enable solopasha/hyprland
 dnf5 install -y sddm hyprland hyprpolkitagent hyprcursor mako \
 	pipewire wireplumber xdg-desktop-portal-hyprland waybar nautilus network-manager-applet \
