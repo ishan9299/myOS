@@ -13,7 +13,8 @@ set -ouex pipefail
 dnf5 install -y tmux
 dnf5 install -y ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang python stow
 dnf5 -y copr enable solopasha/hyprland
-dnf5 install -y sddm hyprland hyprpolkitagent hyprcursor mako pipewire wireplumber xdg-desktop-portal-hyprland waybar nautilus udiskie iwgtk \
+dnf5 install -y sddm hyprland hyprpolkitagent hyprcursor mako \
+	pipewire wireplumber xdg-desktop-portal-hyprland waybar nautilus network-manager-applet \
 	gvfs gvfs-afc gvfs-afp gvfs-archive gvfs-client gvfs-fuse gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
 dnf5 -y group install virtualization
 dnf5 install -y steam-devices
