@@ -13,7 +13,8 @@ set -ouex pipefail
 dnf5 install -y tmux
 dnf5 install -y just
 dnf5 install -y ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang
-# dnf5 -y copr enable solopasha/hyprland
+dnf5 -y copr enable solopasha/hyprland
+dnf5 install -y sddm hyprland hyprpolkitagent hyprcursor dunst pipewire wireplumber xdg-desktop-portal-hyprland
 
 # Use a COPR Example:
 #
@@ -24,4 +25,5 @@ dnf5 install -y ninja-build cmake gcc make gettext curl glibc-gconv-extra git cl
 
 #### Example for enabling a System Unit File
 
+systemctl enable sddm
 systemctl enable podman.socket
