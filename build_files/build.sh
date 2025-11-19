@@ -12,10 +12,24 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux
 dnf5 install -y ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang python stow --setopt=install_weak_deps=False
-dnf5 -y copr enable solopasha/hyprland
-dnf5 install -y sddm hyprland hyprpolkitagent hyprcursor mako \
-	pipewire wireplumber xdg-desktop-portal-hyprland waybar nautilus network-manager-applet \
-	gvfs gvfs-afc gvfs-afp gvfs-archive gvfs-client gvfs-fuse gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
+# dnf5 -y copr enable solopasha/hyprland
+# dnf5 install -y sddm hyprland hyprpolkitagent hyprcursor mako \
+# 	pipewire wireplumber xdg-desktop-portal-hyprland waybar nautilus network-manager-applet \
+# 	gvfs gvfs-afc gvfs-afp gvfs-archive gvfs-client gvfs-fuse gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
+#
+
+# sway compiling
+dnf5 install -y meson wlroots wayland wayland-protocols pcre2 json-c pango cairo gdk-pixbuf2 swaybg scdoc git
+git clone --depth=1 https://github.com/dawsers/scroll
+cd scroll
+meson setup build/
+ninja -C build/
+ninja -C build/ install
+cd ..
+rm -rf scroll
+
+dnf5 install -y sddm
+
 dnf5 -y group install virtualization
 dnf5 install -y steam-devices
 
@@ -25,8 +39,6 @@ dnf5 install -y steam-devices
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
-
-dnf5 -y copr disable solopasha/hyprland
 
 #### Example for enabling a System Unit File
 
