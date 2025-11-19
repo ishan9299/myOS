@@ -20,6 +20,7 @@ dnf5 install -y meson ninja-build cmake gcc make gettext curl glibc-gconv-extra 
 
 # scroll compiling
 dnf5 install -y meson wayland-devel mesa-libEGL-devel mesa-libGLES-devel mesa-dri-drivers xorg-x11-server-Xwayland libdrm-devel libgbm-devel libxkbcommon-devel libudev-devel pixman-devel libinput-devel libevdev-devel systemd-devel cairo-devel libpcap-devel json-c-devel pam-devel pango-devel pcre-devel gdk-pixbuf2-devel hwdata-devel
+dnf5 install -y meson wayland-devel wayland-protocols-devel mesa-libEGL-devel mesa-libGLES-devel vulkan-loader-devel vulkan-headers libdrm-devel mesa-libgbm-devel libinput-devel libxkbcommon-devel systemd-devel pixman-devel libseat-devel hwdata libdisplay-info-devel libliftoff-devel glslang
 git clone --depth=1 https://github.com/dawsers/scroll
 cd scroll
 # git clone https://gitlab.freedesktop.org/wlroots/wlroots.git subprojects/wlroots
