@@ -18,10 +18,11 @@ dnf5 install -y meson ninja-build cmake gcc make gettext curl glibc-gconv-extra 
 # 	gvfs gvfs-afc gvfs-afp gvfs-archive gvfs-client gvfs-fuse gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
 #
 
-# sway compiling
+# scroll compiling
 dnf5 install -y meson wayland-devel mesa-libEGL-devel mesa-libGLES-devel mesa-dri-drivers xorg-x11-server-Xwayland libdrm-devel libgbm-devel libxkbcommon-devel libudev-devel pixman-devel libinput-devel libevdev-devel systemd-devel cairo-devel libpcap-devel json-c-devel pam-devel pango-devel pcre-devel gdk-pixbuf2-devel hwdata-devel
 git clone --depth=1 https://github.com/dawsers/scroll
 cd scroll
+git clone https://gitlab.freedesktop.org/wlroots/wlroots.git subprojects/wlroots
 meson setup build/
 ninja -C build/
 ninja -C build/ install
