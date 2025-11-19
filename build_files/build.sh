@@ -69,6 +69,7 @@ cp completions/bash/scrollbar /usr/share/bash-completion/completions/scrollbar
 cd ..
 rm -rf scroll
 dnf5 remove -y "${scroll_packages[@]}"
+dnf5 install -y libliftoff
 
 dnf5 -y group install virtualization
 dnf5 install -y steam-devices
