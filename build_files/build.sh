@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux
+dnf5 install -y tmux kitty
 dnf5 install -y meson ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang python stow --setopt=install_weak_deps=False
 # dnf5 -y copr enable solopasha/hyprland
 # dnf5 install -y sddm hyprland hyprpolkitagent hyprcursor mako \
@@ -24,8 +24,6 @@ dnf5 install -y meson wayland-devel wayland-protocols-devel mesa-libEGL-devel me
 cd /tmp
 git clone --depth=1 https://github.com/dawsers/scroll
 cd scroll
-# git clone https://gitlab.freedesktop.org/wlroots/wlroots.git subprojects/wlroots
-# mkdir -p /usr/local/bin/
 meson setup build/
 ninja -C build/
 cp build/sway/scroll /usr/bin/scroll
