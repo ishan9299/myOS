@@ -9,18 +9,47 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# this installs a package from fedora repos
-dnf5 install -y tmux kitty wmenu-run
-dnf5 install -y meson ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang python stow --setopt=install_weak_deps=False
-# dnf5 -y copr enable solopasha/hyprland
-# dnf5 install -y sddm hyprland hyprpolkitagent hyprcursor mako \
-# 	pipewire wireplumber xdg-desktop-portal-hyprland waybar nautilus network-manager-applet \
-# 	gvfs gvfs-afc gvfs-afp gvfs-archive gvfs-client gvfs-fuse gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
-#
+dnf5 install -y meson ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang python stow lua --setopt=install_weak_deps=False
 
-# scroll compiling
-dnf5 install -y meson wayland-devel mesa-libEGL-devel mesa-libGLES-devel mesa-dri-drivers xorg-x11-server-Xwayland libdrm-devel libgbm-devel libxkbcommon-devel libudev-devel pixman-devel libinput-devel libevdev-devel systemd-devel cairo-devel libpcap-devel json-c-devel pam-devel pango-devel pcre-devel gdk-pixbuf2-devel hwdata-devel
-dnf5 install -y meson wayland-devel wayland-protocols-devel mesa-libEGL-devel mesa-libGLES-devel vulkan-loader-devel vulkan-headers libdrm-devel mesa-libgbm-devel libinput-devel libxkbcommon-devel systemd-devel pixman-devel libseat-devel hwdata libdisplay-info-devel libliftoff-devel glslang lua lua-devel
+scroll_packages=(
+	"wayland-devel"
+	"mesa-libEGL-devel"
+	"mesa-libGLES-devel"
+	"mesa-dri-drivers"
+	"xorg-x11-server-Xwayland"
+	"libdrm-devel"
+	"libgbm-devel"
+	"libxkbcommon-devel"
+	"libudev-devel"
+	"pixman-devel"
+	"libinput-devel"
+	"libevdev-devel"
+	"systemd-devel"
+	"cairo-devel"
+	"libpcap-devel"
+	"json-c-devel"
+	"pam-devel"
+	"pango-devel"
+	"pcre-devel"
+	"gdk-pixbuf2-devel"
+	"hwdata-devel"
+	"wayland-protocols-devel"
+	"mesa-libEGL-devel"
+	"mesa-libGLES-devel"
+	"vulkan-loader-devel"
+	"vulkan-headers"
+	"mesa-libgbm-devel"
+	"systemd-devel"
+	"pixman-devel"
+	"libseat-devel"
+	"hwdata"
+	"libdisplay-info-devel"
+	"libliftoff-devel"
+	"glslang"
+	"lua-devel"
+)
+
+dnf5 install -y "${scroll_packages[@]}"
 cd /tmp
 git clone --depth=1 https://github.com/dawsers/scroll
 cd scroll
@@ -39,11 +68,16 @@ cp completions/bash/scrollbar /usr/share/bash-completion/completions/scrollbar
 # ninja -C build/ install
 cd ..
 rm -rf scroll
-
-dnf5 install -y sddm
+dnf5 remove -y "${scroll_packages[@]}"
 
 dnf5 -y group install virtualization
 dnf5 install -y steam-devices
+
+dnf5 install -y tmux kitty wmenu-run
+dnf5 install -y sddm hyprcursor mako pipewire wireplumber \
+	xdg-desktop-portal-hyprland waybar nautilus network-manager-applet \
+	gvfs gvfs-afc gvfs-afp gvfs-archive gvfs-client gvfs-fuse gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
+
 
 # Use a COPR Example:
 #
