@@ -24,6 +24,7 @@ dnf5 install -y meson wayland-devel wayland-protocols-devel mesa-libEGL-devel me
 git clone --depth=1 https://github.com/dawsers/scroll
 cd scroll
 # git clone https://gitlab.freedesktop.org/wlroots/wlroots.git subprojects/wlroots
+mkdir -p /usr/local/bin/
 meson setup build/
 ninja -C build/
 ninja -C build/ install
