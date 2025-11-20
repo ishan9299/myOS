@@ -54,7 +54,7 @@ cp build/sway/scroll /usr/bin/scroll
 cp build/swaymsg/scrollmsg /usr/bin/scrollmsg
 cp build/swaybar/scrollbar /usr/bin/scrollbar
 cp build/swaynag/scrollnag /usr/bin/scrollnag
-mkdir -p /etc/scroll/ && cp build/config /etc/scroll/config
+mkdir -p /etc/xdg/scroll/ && cp build/config /etc/xdg/scroll/config
 cp scroll.desktop /usr/share/wayland-sessions/scroll.desktop
 cp completions/bash/scroll /usr/share/bash-completion/completions/scroll
 cp completions/bash/scrollmsg /usr/share/bash-completion/completions/scrollmsg
