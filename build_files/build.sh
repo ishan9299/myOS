@@ -62,7 +62,7 @@ cp completions/bash/scrollbar /usr/share/bash-completion/completions/scrollbar
 cd ..
 rm -rf scroll
 
-dnf5 install -y qemu steam-devices sddm tmux kitty wmenu-run mesa-dri-drivers polkit swaybg xorg-x11-server-Xwayland grim sway-systemd
+dnf5 install -y qemu libvirt steam-devices sddm tmux kitty wmenu-run mesa-dri-drivers polkit swaybg xorg-x11-server-Xwayland grim sway-systemd
 
 #### Example for enabling a System Unit File
 systemctl enable sddm
