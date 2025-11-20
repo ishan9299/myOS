@@ -48,7 +48,7 @@ dnf5 install -y "${scroll_packages[@]}"
 cd /tmp
 git clone --depth=1 https://github.com/dawsers/scroll
 cd scroll
-meson setup build/
+meson setup build/ --prefix=/usr --sysconfdir=/etc
 ninja -C build/
 cp build/sway/scroll /usr/bin/scroll
 cp build/swaymsg/scrollmsg /usr/bin/scrollmsg
