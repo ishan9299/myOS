@@ -67,7 +67,7 @@ cp completions/bash/scrollbar /usr/share/bash-completion/completions/scrollbar
 cd ..
 rm -rf scroll
 
-dnf5 install -y qemu libvirt steam-devices sddm tmux kitty wmenu-run mesa-dri-drivers polkit swaybg xorg-x11-server-Xwayland grim walker wofi
+dnf5 install -y qemu libvirt steam-devices sddm tmux kitty mesa-dri-drivers polkit swaybg xorg-x11-server-Xwayland grim wofi
 
 dnf5 remove -y firefox
 
