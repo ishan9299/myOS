@@ -59,13 +59,11 @@ cp build/sway/scroll /usr/bin/scroll
 cp build/swaymsg/scrollmsg /usr/bin/scrollmsg
 cp build/swaybar/scrollbar /usr/bin/scrollbar
 cp build/swaynag/scrollnag /usr/bin/scrollnag
-mkdir -p /etc/scroll/ && cp build/config /etc/scroll/config
+mkdir -p /var/usrlocal/etc/scroll/ && cp build/config /var/usrlocal/etc/scroll/config
 cp scroll.desktop /usr/share/wayland-sessions/scroll.desktop
 cp completions/bash/scroll /usr/share/bash-completion/completions/scroll
 cp completions/bash/scrollmsg /usr/share/bash-completion/completions/scrollmsg
 cp completions/bash/scrollbar /usr/share/bash-completion/completions/scrollbar
-# cp build/config
-# ninja -C build/ install
 cd ..
 rm -rf scroll
 # dnf5 remove -y "${scroll_packages[@]}"
@@ -80,6 +78,7 @@ dnf5 install -y sddm hyprcursor mako pipewire wireplumber \
 	gvfs gvfs-afc gvfs-afp gvfs-archive gvfs-client gvfs-fuse gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
 
 
+dnf5 remove \"*devel*\"
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
