@@ -56,9 +56,9 @@ cp build/swaybar/scrollbar /usr/bin/scrollbar
 cp build/swaynag/scrollnag /usr/bin/scrollnag
 mkdir -p /etc/scroll/ && cp build/config /etc/scroll/config
 
-chmod 644 /etc/scroll/config
-chown root:root /etc/scroll/config
-restorecon -R /etc/scroll/
+# chmod 644 /etc/scroll/config
+# chown root:root /etc/scroll/config
+# restorecon -R /etc/scroll/
 
 cp scroll.desktop /usr/share/wayland-sessions/scroll.desktop
 cp completions/bash/scroll /usr/share/bash-completion/completions/scroll
