@@ -69,8 +69,7 @@ rm -rf scroll
 
 dnf5 install -y qemu libvirt steam-devices sddm tmux kitty wmenu-run mesa-dri-drivers polkit swaybg xorg-x11-server-Xwayland grim
 
-# dnf5 copr -y enable scrollwm/packages
-# dnf5 install -y scroll
+dnf5 remove -y firefox
 
 #### Example for enabling a System Unit File
 systemctl enable sddm
