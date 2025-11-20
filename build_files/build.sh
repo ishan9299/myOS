@@ -4,11 +4,6 @@ set -ouex pipefail
 
 ### Install packages
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
 dnf5 install -y meson ninja-build cmake gcc make gettext curl glibc-gconv-extra git clang python stow lua --setopt=install_weak_deps=False
 
 scroll_packages=(
@@ -66,28 +61,10 @@ cp completions/bash/scrollmsg /usr/share/bash-completion/completions/scrollmsg
 cp completions/bash/scrollbar /usr/share/bash-completion/completions/scrollbar
 cd ..
 rm -rf scroll
-# dnf5 remove -y "${scroll_packages[@]}"
-# dnf5 install -y libliftoff
 
-dnf5 -y group install virtualization
-dnf5 install -y steam-devices
-
-dnf5 install -y tmux kitty wmenu-run
-dnf5 install -y sddm hyprcursor mako pipewire wireplumber \
-	xdg-desktop-portal-hyprland waybar nautilus network-manager-applet \
-	gvfs gvfs-afc gvfs-afp gvfs-archive gvfs-client gvfs-fuse gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
-
-
-dnf5 remove \"*devel*\"
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
+dnf5 install -y qemu steam-devices sddm tmux kitty wmenu-run mesa-dri-drivers polkit swaybg xorg-x11-server-Xwayland grim sway-systemd
 
 #### Example for enabling a System Unit File
-
 systemctl enable sddm
 systemctl enable libvirtd
 systemctl enable podman.socket
